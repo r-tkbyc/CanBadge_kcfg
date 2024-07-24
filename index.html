@@ -11,50 +11,50 @@
   <script>
     const showInfo = () => {
       let y = 0;
-      const countryButton0 = document.querySelector("#hana-country-button0");
-      const countryButton1 = document.querySelector("#hana-country-button1");
-      const countryButton2 = document.querySelector("#hana-country-button2");
-      const countryButton3 = document.querySelector("#hana-country-button3");
-      const text = document.querySelector("#hana-text");
+      const hanaCountryButton0 = document.querySelector("#hana-country-button0");
+      const hanaCountryButton1 = document.querySelector("#hana-country-button1");
+      const hanaCountryButton2 = document.querySelector("#hana-country-button2");
+      const hanaCountryButton3 = document.querySelector("#hana-country-button3");
+      const hanaText = document.querySelector("#hana-text");
 
-      countryButton0.setAttribute("visible", true);
+      hanaCountryButton0.setAttribute("visible", true);
       setTimeout(() => {
-        countryButton1.setAttribute("visible", true);
+        hanaCountryButton1.setAttribute("visible", true);
       }, 300);
       setTimeout(() => {
-        countryButton2.setAttribute("visible", true);
+        hanaCountryButton2.setAttribute("visible", true);
       }, 600);
       setTimeout(() => {
-        countryButton3.setAttribute("visible", true);
+        hanaCountryButton3.setAttribute("visible", true);
       }, 900);
       setTimeout(() => {
-        text.setAttribute("visible", true);
+        hanaText.setAttribute("visible", true);
       }, 1200);
 
       let currentTab = '';
-      countryButton0.addEventListener('click', function(evt) {
-        text.setAttribute("value", "Go to Japan Wiki");
+      hanaCountryButton0.addEventListener('click', function(evt) {
+        hanaText.setAttribute("value", "Go to Japan Wiki");
         currentTab = 'country0';
         if (currentTab === 'country0') {
           window.location.href = "https://ja.wikipedia.org/wiki/%E8%8A%B1";
         }
       });
-      countryButton1.addEventListener('click', function(evt) {
-        text.setAttribute("value", "Go to China wiki");
+      hanaCountryButton1.addEventListener('click', function(evt) {
+        hanaText.setAttribute("value", "Go to China wiki");
         currentTab = 'country1';
         if (currentTab === 'country1') {
           window.location.href = "https://zh.wikipedia.org/wiki/%E8%8A%B1";
         }
       });
-      countryButton2.addEventListener('click', function(evt) {
-        text.setAttribute("value", "Go to Taiwan Wiki");
+      hanaCountryButton2.addEventListener('click', function(evt) {
+        hanaText.setAttribute("value", "Go to Taiwan Wiki");
         currentTab = 'country2';
         if (currentTab === 'country2') {
           window.location.href = "https://zh.wikipedia.org/wiki/%E8%8A%B1";
         }
       });
-      countryButton3.addEventListener('click', function(evt) {
-        text.setAttribute("value", "Go to America Wiki");
+      hanaCountryButton3.addEventListener('click', function(evt) {
+        hanaText.setAttribute("value", "Go to America Wiki");
         currentTab = 'country3';
         if (currentTab === 'country3') {
           window.location.href = "https://en.wikipedia.org/wiki/Flower";
@@ -63,10 +63,10 @@
     }
 
     const showImage = (done) => {
-      const imagePanel = document.querySelector("#hana-image-panel");
-      const imageLeftButton = document.querySelector("#hana-image-left-button");
-      const imageRightButton = document.querySelector("#hana-image-right-button");
-      const startImageItem = document.querySelector("#hana-start-image-item");
+      const hanaImagePanel = document.querySelector("#hana-image-panel");
+      const hanaImageLeftButton = document.querySelector("#hana-image-left-button");
+      const hanaImageRightButton = document.querySelector("#hana-image-right-button");
+      const hanaStartImageItem = document.querySelector("#hana-start-image-item");
 
       let y = 0;
       let scale = 0.001; //
@@ -83,18 +83,18 @@
         scale += (1 - 0.001) / (0.3 / 0.01); //
         if (y >= 0.3) {
           clearInterval(id);
-          imageLeftButton.setAttribute("visible", true);
-          imageRightButton.setAttribute("visible", true);
-          imageLeftButton.addEventListener('click', () => {
+          hanaImageLeftButton.setAttribute("visible", true);
+          hanaImageRightButton.setAttribute("visible", true);
+          hanaImageLeftButton.addEventListener('click', () => {
             currentItem = (currentItem - 1 + 4) % 4;
             showImageItem(currentItem);
           });
-          imageRightButton.addEventListener('click', () => {
+          hanaImageRightButton.addEventListener('click', () => {
             currentItem = (currentItem + 1) % 4;
             showImageItem(currentItem);
           });
 
-          startImageItem.addEventListener('click', () => {
+          hanaStartImageItem.addEventListener('click', () => {
             startImageItem.setAttribute("visible", true);
           });
 
@@ -103,14 +103,14 @@
           }, 500);
         }
 
-        imagePanel.setAttribute("visible", true);
-        imagePanel.setAttribute("position", "0 " + y + " -0.01");
-        imagePanel.setAttribute("scale", `${scale} ${scale} ${scale}`); //
+        hanaImagePanel.setAttribute("visible", true);
+        hanaImagePanel.setAttribute("position", "0 " + y + " -0.01");
+        hanaImagePanel.setAttribute("scale", `${scale} ${scale} ${scale}`); //
       }, 10);
     }
 
     const showAvatar = (onDone) => {
-      const avatar = document.querySelector("#avatar");
+      const hanaAvatar = document.querySelector("#hana-avatar");
       let z = 0;
       let scale = 0.07;
 
@@ -123,13 +123,13 @@
           onDone();
         }
 
-        avatar.setAttribute("position", `0 -0.085 ${z}`);
-        avatar.setAttribute("scale", `${scale} ${scale} ${scale}`);
+        hanaAvatar.setAttribute("position", `0 -0.085 ${z}`);
+        hanaAvatar.setAttribute("scale", `${scale} ${scale} ${scale}`);
       }, 10);
     }
 
 
-    AFRAME.registerComponent('hanatarget', {
+    AFRAME.registerComponent('hanaTarget', {
       init: function() {
         this.el.addEventListener('targetFound', event => {
           console.log("target found");
@@ -304,7 +304,7 @@
 </head>
 
 <body>
-  <div style="color: #f00;">Ver1.0.5</div>
+  <div style="color: #f00;">Ver1.0.6</div>
 
   <div class="example-container">
     <div id="example-scanning-overlay" class="">
@@ -329,14 +329,14 @@
         <img id="hana-language1-image" src="./assets/images/hana-lang-chn.jpg">
         <img id="hana-language2-image" src="./assets/images/hana-lang-twn.jpg">
         <img id="hana-language3-image" src="./assets/images/hana-lang-usa.jpg">
-        <a-asset-item id="avatarModel" src="./assets/model/model_hana.glb"></a-asset-item>
+        <a-asset-item id="hana-avatarModel" src="./assets/model/model_hana.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
       raycaster="far: 10000; objects: .clickable" camera="" rotation="" wasd-controls="">
       </a-camera>
 
-      <a-entity hanatarget id="" mindar-image-target="targetIndex: 0">
+      <a-entity hanaTarget id="" mindar-image-target="targetIndex: 0">
         <a-entity visible="false" id="hana-image-panel" position="0 0 -0.01">
           <!-- <a-text value="Portfolio" color="black" align="center" width="2" position="0 0.4 0" text=""></a-text> -->
           <a-entity id="hana-image-item0">
@@ -374,7 +374,7 @@
         height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         material="" geometry=""></a-image>
 
-        <a-gltf-model id="hana-avatar" rotation="" position="0 -0.085 0" scale="0 0 0" src="#avatarModel" gltf-model=""
+        <a-gltf-model id="hana-avatar" rotation="" position="0 -0.085 0" scale="0 0 0" src="#hana-avatarModel" gltf-model=""
         animation="property: rotation; from: 0 -20 0; to: 0 20 0; dur: 2500; easing: easeInOutSine; loop: true; dir: alternate"></a-gltf-model>
 
         <a-text visible="false" id="hana-text" class="clickable" value="Tap the flag. Go to Wikipedia." color="black" align="center" width="1"
