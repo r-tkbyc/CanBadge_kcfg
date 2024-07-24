@@ -11,11 +11,11 @@
   <script>
     const showInfo = () => {
       let y = 0;
-      const countryButton0 = document.querySelector("#country-button0");
-      const countryButton1 = document.querySelector("#country-button1");
-      const countryButton2 = document.querySelector("#country-button2");
-      const countryButton3 = document.querySelector("#country-button3");
-      const text = document.querySelector("#text");
+      const countryButton0 = document.querySelector("#hana-country-button0");
+      const countryButton1 = document.querySelector("#hana-country-button1");
+      const countryButton2 = document.querySelector("#hana-country-button2");
+      const countryButton3 = document.querySelector("#hana-country-button3");
+      const text = document.querySelector("#hana-text");
 
       countryButton0.setAttribute("visible", true);
       setTimeout(() => {
@@ -63,9 +63,9 @@
     }
 
     const showImage = (done) => {
-      const imagePanel = document.querySelector("#image-panel");
-      const imageLeftButton = document.querySelector("#image-left-button");
-      const imageRightButton = document.querySelector("#image-right-button");
+      const imagePanel = document.querySelector("#hana-image-panel");
+      const imageLeftButton = document.querySelector("#hana-image-left-button");
+      const imageRightButton = document.querySelector("#hana-image-right-button");
       const startImageItem = document.querySelector("#hana-start-image-item");
 
       let y = 0;
@@ -304,7 +304,7 @@
 </head>
 
 <body>
-  <div style="color: #f00;">Ver1.0.4</div>
+  <div style="color: #f00;">Ver1.0.5</div>
 
   <div class="example-container">
     <div id="example-scanning-overlay" class="">
@@ -319,12 +319,12 @@
     vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false"
     inspector="" keyboard-shortcuts="" screenshot="">
       <a-assets>
-        <img id="icon-country0" src="./assets/images/icon-jpn.png">
-        <img id="icon-country1" src="./assets/images/icon-chn.png">
-        <img id="icon-country2" src="./assets/images/icon-twn.png">
-        <img id="icon-country3" src="./assets/images/icon-usa.png">
-        <img id="icon-left" src="./assets/images/left.png">
-        <img id="icon-right" src="./assets/images/right.png">
+        <img id="hana-icon-country0" src="./assets/images/icon-jpn.png">
+        <img id="hana-icon-country1" src="./assets/images/icon-chn.png">
+        <img id="hana-icon-country2" src="./assets/images/icon-twn.png">
+        <img id="hana-icon-country3" src="./assets/images/icon-usa.png">
+        <img id="hana-icon-left" src="./assets/images/left.png">
+        <img id="hana-icon-right" src="./assets/images/right.png">
         <img id="hana-start-image" src="./assets/images/hana-lang-jpn.jpg">
         <img id="hana-language1-image" src="./assets/images/hana-lang-chn.jpg">
         <img id="hana-language2-image" src="./assets/images/hana-lang-twn.jpg">
@@ -336,8 +336,8 @@
       raycaster="far: 10000; objects: .clickable" camera="" rotation="" wasd-controls="">
       </a-camera>
 
-      <a-entity hanatarget id="mytarget" mindar-image-target="targetIndex: 0">
-        <a-entity visible="false" id="image-panel" position="0 0 -0.01">
+      <a-entity hanatarget id="" mindar-image-target="targetIndex: 0">
+        <a-entity visible="false" id="hana-image-panel" position="0 0 -0.01">
           <!-- <a-text value="Portfolio" color="black" align="center" width="2" position="0 0.4 0" text=""></a-text> -->
           <a-entity id="hana-image-item0">
             <a-image id="hana-start-image-item" class="clickable" src="#hana-start-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
@@ -352,32 +352,32 @@
             <a-image class="clickable" src="#hana-language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
 
-          <a-image visible="false" id="image-left-button" class="clickable" src="#icon-left" position="-0.65 0.3 0"
+          <a-image visible="false" id="hana-image-left-button" class="clickable" src="#hana-icon-left" position="-0.65 0.3 0"
           height="0.15" width="0.15" material="" geometry=""></a-image>
-          <a-image visible="false" id="image-right-button" class="clickable" src="#icon-right" position="0.65 0.3 0"
+          <a-image visible="false" id="hana-image-right-button" class="clickable" src="#hana-icon-right" position="0.65 0.3 0"
           height="0.15" width="0.15" material="" geometry=""></a-image>
         </a-entity>
 
-        <a-image visible="false" id="country-button0" class="clickable" src="#icon-country0" position="-0.42 1 0"
+        <a-image visible="false" id="hana-country-button0" class="clickable" src="#hana-icon-country0" position="-0.42 1 0"
         height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         material="" geometry=""></a-image>
 
-        <a-image visible="false" id="country-button1" class="clickable" src="#icon-country1" position="-0.14 1 0"
+        <a-image visible="false" id="hana-country-button1" class="clickable" src="#hana-icon-country1" position="-0.14 1 0"
         height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         material="" geometry=""></a-image>
 
-        <a-image visible="false" id="country-button2" class="clickable" src="#icon-country2" position="0.14 1 0"
+        <a-image visible="false" id="hana-country-button2" class="clickable" src="#hana-icon-country2" position="0.14 1 0"
         height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         material="" geometry=""></a-image>
 
-        <a-image visible="false" id="country-button3" class="clickable" src="#icon-country3" position="0.42 1 0"
+        <a-image visible="false" id="hana-country-button3" class="clickable" src="#hana-icon-country3" position="0.42 1 0"
         height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         material="" geometry=""></a-image>
 
-        <a-gltf-model id="avatar" rotation="" position="0 -0.085 0" scale="0 0 0" src="#avatarModel" gltf-model=""
+        <a-gltf-model id="hana-avatar" rotation="" position="0 -0.085 0" scale="0 0 0" src="#avatarModel" gltf-model=""
         animation="property: rotation; from: 0 -20 0; to: 0 20 0; dur: 2500; easing: easeInOutSine; loop: true; dir: alternate"></a-gltf-model>
 
-        <a-text visible="false" id="text" class="clickable" value="Tap the flag. Go to Wikipedia." color="black" align="center" width="1"
+        <a-text visible="false" id="hana-text" class="clickable" value="Tap the flag. Go to Wikipedia." color="black" align="center" width="1"
         position="0 -0.375 0" geometry="primitive:plane; height: 0.1; width: 1;" material="opacity: 0.5" text=""></a-text>
       </a-entity>
       <canvas class="a-canvas" data-aframe-canvas="true" data-engine="three.js r147" width="54" height="960"></canvas>
