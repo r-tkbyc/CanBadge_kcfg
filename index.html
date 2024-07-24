@@ -66,7 +66,7 @@
       const imagePanel = document.querySelector("#image-panel");
       const imageLeftButton = document.querySelector("#image-left-button");
       const imageRightButton = document.querySelector("#image-right-button");
-      const startImageItem = document.querySelector("#start-image-item");
+      const startImageItem = document.querySelector("#hana-start-image-item");
 
       let y = 0;
       let scale = 0.001; //
@@ -74,7 +74,7 @@
 
       const showImageItem = (item) => {
         for (let i = 0; i <= 3; i++) {
-          document.querySelector("#image-item" + i).setAttribute(
+          document.querySelector("#hana-image-item" + i).setAttribute(
             "visible", i === item);
         }
       }
@@ -325,10 +325,10 @@
         <img id="icon-country3" src="./assets/images/icon-usa.png">
         <img id="icon-left" src="./assets/images/left.png">
         <img id="icon-right" src="./assets/images/right.png">
-        <img id="start-image" src="./assets/images/hana-lang-jpn.jpg">
-        <img id="language1-image" src="./assets/images/hana-lang-chn.jpg">
-        <img id="language2-image" src="./assets/images/hana-lang-twn.jpg">
-        <img id="language3-image" src="./assets/images/hana-lang-usa.jpg">
+        <img id="hana-start-image" src="./assets/images/hana-lang-jpn.jpg">
+        <img id="hana-language1-image" src="./assets/images/hana-lang-chn.jpg">
+        <img id="hana-language2-image" src="./assets/images/hana-lang-twn.jpg">
+        <img id="hana-language3-image" src="./assets/images/hana-lang-usa.jpg">
         <a-asset-item id="avatarModel" src="./assets/model/model_hana.glb"></a-asset-item>
       </a-assets>
 
@@ -339,17 +339,17 @@
       <a-entity id="mytarget" mytarget="" mindar-image-target="targetIndex: 0">
         <a-entity visible="false" id="image-panel" position="0 0 -0.01">
           <!-- <a-text value="Portfolio" color="black" align="center" width="2" position="0 0.4 0" text=""></a-text> -->
-          <a-entity id="image-item0">
-            <a-image id="start-image-item" class="clickable" src="#start-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          <a-entity id="hana-image-item0">
+            <a-image id="hana-start-image-item" class="clickable" src="#hana-start-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
-          <a-entity id="image-item1" visible="false">
-            <a-image class="clickable" src="#language1-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          <a-entity id="hana-image-item1" visible="false">
+            <a-image class="clickable" src="#hana-language1-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
-          <a-entity id="image-item2" visible="false">
-            <a-image class="clickable" src="#language2-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          <a-entity id="hana-image-item2" visible="false">
+            <a-image class="clickable" src="#hana-language2-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
-          <a-entity id="image-item3" visible="false">
-            <a-image class="clickable" src="#language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          <a-entity id="hana-image-item3" visible="false">
+            <a-image class="clickable" src="#hana-language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
 
           <a-image visible="false" id="image-left-button" class="clickable" src="#icon-left" position="-0.65 0.3 0"
