@@ -577,7 +577,7 @@
 
       okButton.addEventListener('click', startAR);
 
-      AFRAME.registerComponent('mytarget', {
+      AFRAME.registerComponent('tukitarget', {
         init: function() {
           this.el.addEventListener('targetFound', event => {
             console.log("target found");
@@ -766,7 +766,6 @@
     }
     .modal-img {
       max-width: 100%;
-
     }
     .close {
       color: #aaa;
@@ -784,7 +783,7 @@
 </head>
 
 <body>
-  <div style="color: #f00;">Ver1.2.2</div>
+  <div style="color: #f00;">Ver1.2.3</div>
 
   <div class="example-container">
     <div id="example-scanning-overlay" class="">
@@ -797,7 +796,7 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <!--span class="close">&times;</span-->
-        <img class="modal-img" src="assets/images/modal.jpg" alt="">
+        <img class="modal-img" src="./assets/images/modal.jpg" alt="">
         <p>AR Experience is ready. Click OK to start.</p>
         <button id="ok-button">OK</button>
       </div>
