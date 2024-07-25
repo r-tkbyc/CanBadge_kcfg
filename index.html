@@ -128,7 +128,6 @@
       }, 10);
     }
 
-
     AFRAME.registerComponent('hanatarget', {
       init: function() {
         this.el.addEventListener('targetFound', event => {
@@ -151,148 +150,289 @@
     });
   </script>
 
-<script>
-  const toriShowInfo = () => {
-    let y = 0;
-    const toriCountryButton0 = document.querySelector("#tori-country-button0");
-    const toriCountryButton1 = document.querySelector("#tori-country-button1");
-    const toriCountryButton2 = document.querySelector("#tori-country-button2");
-    const toriCountryButton3 = document.querySelector("#tori-country-button3");
-    const toriText = document.querySelector("#tori-text");
+  <script>
+    const toriShowInfo = () => {
+      let y = 0;
+      const toriCountryButton0 = document.querySelector("#tori-country-button0");
+      const toriCountryButton1 = document.querySelector("#tori-country-button1");
+      const toriCountryButton2 = document.querySelector("#tori-country-button2");
+      const toriCountryButton3 = document.querySelector("#tori-country-button3");
+      const toriText = document.querySelector("#tori-text");
 
-    toriCountryButton0.setAttribute("visible", true);
-    setTimeout(() => {
-      toriCountryButton1.setAttribute("visible", true);
-    }, 300);
-    setTimeout(() => {
-      toriCountryButton2.setAttribute("visible", true);
-    }, 600);
-    setTimeout(() => {
-      toriCountryButton3.setAttribute("visible", true);
-    }, 900);
-    setTimeout(() => {
-      toriText.setAttribute("visible", true);
-    }, 1200);
+      toriCountryButton0.setAttribute("visible", true);
+      setTimeout(() => {
+        toriCountryButton1.setAttribute("visible", true);
+      }, 300);
+      setTimeout(() => {
+        toriCountryButton2.setAttribute("visible", true);
+      }, 600);
+      setTimeout(() => {
+        toriCountryButton3.setAttribute("visible", true);
+      }, 900);
+      setTimeout(() => {
+        toriText.setAttribute("visible", true);
+      }, 1200);
 
-    let currentTab = '';
-    toriCountryButton0.addEventListener('click', function(evt) {
-      toriText.setAttribute("value", "Go to Japan Wiki");
-      currentTab = 'country0';
-      if (currentTab === 'country0') {
-        window.location.href = "https://ja.wikipedia.org/wiki/%E9%B3%A5%E9%A1%9E";
-      }
-    });
-    toriCountryButton1.addEventListener('click', function(evt) {
-      toriText.setAttribute("value", "Go to China wiki");
-      currentTab = 'country1';
-      if (currentTab === 'country1') {
-        window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
-      }
-    });
-    toriCountryButton2.addEventListener('click', function(evt) {
-      toriText.setAttribute("value", "Go to Taiwan Wiki");
-      currentTab = 'country2';
-      if (currentTab === 'country2') {
-        window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
-      }
-    });
-    toriCountryButton3.addEventListener('click', function(evt) {
-      toriText.setAttribute("value", "Go to America Wiki");
-      currentTab = 'country3';
-      if (currentTab === 'country3') {
-        window.location.href = "https://en.wikipedia.org/wiki/Bird";
-      }
-    });
-  }
-
-  const toriShowImage = (done) => {
-    const toriImagePanel = document.querySelector("#tori-image-panel");
-    const toriImageLeftButton = document.querySelector("#tori-image-left-button");
-    const toriImageRightButton = document.querySelector("#tori-image-right-button");
-    const toriStartImageItem = document.querySelector("#tori-start-image-item");
-
-    let y = 0;
-    let scale = 0.001; //
-    let currentItem = 0;
-
-    const showImageItem = (item) => {
-      for (let i = 0; i <= 3; i++) {
-        document.querySelector("#tori-image-item" + i).setAttribute(
-          "visible", i === item);
-      }
+      let currentTab = '';
+      toriCountryButton0.addEventListener('click', function(evt) {
+        toriText.setAttribute("value", "Go to Japan Wiki");
+        currentTab = 'country0';
+        if (currentTab === 'country0') {
+          window.location.href = "https://ja.wikipedia.org/wiki/%E9%B3%A5%E9%A1%9E";
+        }
+      });
+      toriCountryButton1.addEventListener('click', function(evt) {
+        toriText.setAttribute("value", "Go to China wiki");
+        currentTab = 'country1';
+        if (currentTab === 'country1') {
+          window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
+        }
+      });
+      toriCountryButton2.addEventListener('click', function(evt) {
+        toriText.setAttribute("value", "Go to Taiwan Wiki");
+        currentTab = 'country2';
+        if (currentTab === 'country2') {
+          window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
+        }
+      });
+      toriCountryButton3.addEventListener('click', function(evt) {
+        toriText.setAttribute("value", "Go to America Wiki");
+        currentTab = 'country3';
+        if (currentTab === 'country3') {
+          window.location.href = "https://en.wikipedia.org/wiki/Bird";
+        }
+      });
     }
-    const id = setInterval(() => {
-      y += 0.01;
-      scale += (1 - 0.001) / (0.3 / 0.01); //
-      if (y >= 0.3) {
-        clearInterval(id);
-        toriImageLeftButton.setAttribute("visible", true);
-        toriImageRightButton.setAttribute("visible", true);
-        toriImageLeftButton.addEventListener('click', () => {
-          currentItem = (currentItem - 1 + 4) % 4;
-          showImageItem(currentItem);
-        });
-        toriImageRightButton.addEventListener('click', () => {
-          currentItem = (currentItem + 1) % 4;
-          showImageItem(currentItem);
-        });
 
-        toriStartImageItem.addEventListener('click', () => {
-          startImageItem.setAttribute("visible", true);
-        });
+    const toriShowImage = (done) => {
+      const toriImagePanel = document.querySelector("#tori-image-panel");
+      const toriImageLeftButton = document.querySelector("#tori-image-left-button");
+      const toriImageRightButton = document.querySelector("#tori-image-right-button");
+      const toriStartImageItem = document.querySelector("#tori-start-image-item");
 
-        setTimeout(() => {
-          done();
-        }, 500);
+      let y = 0;
+      let scale = 0.001; //
+      let currentItem = 0;
+
+      const showImageItem = (item) => {
+        for (let i = 0; i <= 3; i++) {
+          document.querySelector("#tori-image-item" + i).setAttribute(
+            "visible", i === item);
+        }
       }
+      const id = setInterval(() => {
+        y += 0.01;
+        scale += (1 - 0.001) / (0.3 / 0.01); //
+        if (y >= 0.3) {
+          clearInterval(id);
+          toriImageLeftButton.setAttribute("visible", true);
+          toriImageRightButton.setAttribute("visible", true);
+          toriImageLeftButton.addEventListener('click', () => {
+            currentItem = (currentItem - 1 + 4) % 4;
+            showImageItem(currentItem);
+          });
+          toriImageRightButton.addEventListener('click', () => {
+            currentItem = (currentItem + 1) % 4;
+            showImageItem(currentItem);
+          });
 
-      toriImagePanel.setAttribute("visible", true);
-      toriImagePanel.setAttribute("position", "0 " + y + " -0.01");
-      toriImagePanel.setAttribute("scale", `${scale} ${scale} ${scale}`); //
-    }, 10);
-  }
+          toriStartImageItem.addEventListener('click', () => {
+            startImageItem.setAttribute("visible", true);
+          });
 
-  const toriShowAvatar = (onDone) => {
-    const toriAvatar = document.querySelector("#tori-avatar");
-    let z = 0;
-    let scale = 0.07;
-
-    const id = setInterval(() => {
-      z += 0.008;
-      scale += (0.08 - 0.001) / (0.2 / 0.008);  // 位置のアニメーションと同期させるためのスケール増分
-
-      if (z >= 0.2) {
-        clearInterval(id);
-        onDone();
-      }
-
-      toriAvatar.setAttribute("position", `0 -0.085 ${z}`);
-      toriAvatar.setAttribute("scale", `${scale} ${scale} ${scale}`);
-    }, 10);
-  }
-
-
-  AFRAME.registerComponent('toritarget', {
-    init: function() {
-      this.el.addEventListener('targetFound', event => {
-        console.log("target found");
-        toriShowAvatar(() => {
           setTimeout(() => {
-            toriShowImage(() => {
-              setTimeout(() => {
-                toriShowInfo();
-              }, 100);
-            });
-          }, 100);
-        });
-      });
-      this.el.addEventListener('targetLost', event => {
-        console.log("target found");
-      });
-      //this.el.emit('targetFound');
+            done();
+          }, 500);
+        }
+
+        toriImagePanel.setAttribute("visible", true);
+        toriImagePanel.setAttribute("position", "0 " + y + " -0.01");
+        toriImagePanel.setAttribute("scale", `${scale} ${scale} ${scale}`); //
+      }, 10);
     }
-  });
-</script>
+
+    const toriShowAvatar = (onDone) => {
+      const toriAvatar = document.querySelector("#tori-avatar");
+      let z = 0;
+      let scale = 0.07;
+
+      const id = setInterval(() => {
+        z += 0.008;
+        scale += (0.08 - 0.001) / (0.2 / 0.008);  // 位置のアニメーションと同期させるためのスケール増分
+
+        if (z >= 0.2) {
+          clearInterval(id);
+          onDone();
+        }
+
+        toriAvatar.setAttribute("position", `0 -0.085 ${z}`);
+        toriAvatar.setAttribute("scale", `${scale} ${scale} ${scale}`);
+      }, 10);
+    }
+
+    AFRAME.registerComponent('toritarget', {
+      init: function() {
+        this.el.addEventListener('targetFound', event => {
+          console.log("target found");
+          toriShowAvatar(() => {
+            setTimeout(() => {
+              toriShowImage(() => {
+                setTimeout(() => {
+                  toriShowInfo();
+                }, 100);
+              });
+            }, 100);
+          });
+        });
+        this.el.addEventListener('targetLost', event => {
+          console.log("target found");
+        });
+        //this.el.emit('targetFound');
+      }
+    });
+  </script>
+
+  <script>
+    const kazeShowInfo = () => {
+      let y = 0;
+      const kazeCountryButton0 = document.querySelector("#kaze-country-button0");
+      const kazeCountryButton1 = document.querySelector("#kaze-country-button1");
+      const kazeCountryButton2 = document.querySelector("#kaze-country-button2");
+      const kazeCountryButton3 = document.querySelector("#kaze-country-button3");
+      const kazeText = document.querySelector("#kaze-text");
+
+      kazeCountryButton0.setAttribute("visible", true);
+      setTimeout(() => {
+        kazeCountryButton1.setAttribute("visible", true);
+      }, 300);
+      setTimeout(() => {
+        kazeCountryButton2.setAttribute("visible", true);
+      }, 600);
+      setTimeout(() => {
+        kazeCountryButton3.setAttribute("visible", true);
+      }, 900);
+      setTimeout(() => {
+        kazeText.setAttribute("visible", true);
+      }, 1200);
+
+      let currentTab = '';
+      kazeCountryButton0.addEventListener('click', function(evt) {
+        kazeText.setAttribute("value", "Go to Japan Wiki");
+        currentTab = 'country0';
+        if (currentTab === 'country0') {
+          window.location.href = "https://ja.wikipedia.org/wiki/%E9%B3%A5%E9%A1%9E";
+        }
+      });
+      kazeCountryButton1.addEventListener('click', function(evt) {
+        kazeText.setAttribute("value", "Go to China wiki");
+        currentTab = 'country1';
+        if (currentTab === 'country1') {
+          window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
+        }
+      });
+      kazeCountryButton2.addEventListener('click', function(evt) {
+        kazeText.setAttribute("value", "Go to Taiwan Wiki");
+        currentTab = 'country2';
+        if (currentTab === 'country2') {
+          window.location.href = "https://zh.wikipedia.org/wiki/%E9%B8%9F";
+        }
+      });
+      kazeCountryButton3.addEventListener('click', function(evt) {
+        kazeText.setAttribute("value", "Go to America Wiki");
+        currentTab = 'country3';
+        if (currentTab === 'country3') {
+          window.location.href = "https://en.wikipedia.org/wiki/Bird";
+        }
+      });
+    }
+
+    const kazeShowImage = (done) => {
+      const kazeImagePanel = document.querySelector("#kaze-image-panel");
+      const kazeImageLeftButton = document.querySelector("#kaze-image-left-button");
+      const kazeImageRightButton = document.querySelector("#kaze-image-right-button");
+      const kazeStartImageItem = document.querySelector("#kaze-start-image-item");
+
+      let y = 0;
+      let scale = 0.001; //
+      let currentItem = 0;
+
+      const showImageItem = (item) => {
+        for (let i = 0; i <= 3; i++) {
+          document.querySelector("#kaze-image-item" + i).setAttribute(
+            "visible", i === item);
+        }
+      }
+      const id = setInterval(() => {
+        y += 0.01;
+        scale += (1 - 0.001) / (0.3 / 0.01); //
+        if (y >= 0.3) {
+          clearInterval(id);
+          kazeImageLeftButton.setAttribute("visible", true);
+          kazeImageRightButton.setAttribute("visible", true);
+          kazeImageLeftButton.addEventListener('click', () => {
+            currentItem = (currentItem - 1 + 4) % 4;
+            showImageItem(currentItem);
+          });
+          kazeImageRightButton.addEventListener('click', () => {
+            currentItem = (currentItem + 1) % 4;
+            showImageItem(currentItem);
+          });
+
+          kazeStartImageItem.addEventListener('click', () => {
+            startImageItem.setAttribute("visible", true);
+          });
+
+          setTimeout(() => {
+            done();
+          }, 500);
+        }
+
+        kazeImagePanel.setAttribute("visible", true);
+        kazeImagePanel.setAttribute("position", "0 " + y + " -0.01");
+        kazeImagePanel.setAttribute("scale", `${scale} ${scale} ${scale}`); //
+      }, 10);
+    }
+
+    const kazeShowAvatar = (onDone) => {
+      const kazeAvatar = document.querySelector("#kaze-avatar");
+      let z = 0;
+      let scale = 0.07;
+
+      const id = setInterval(() => {
+        z += 0.008;
+        scale += (0.08 - 0.001) / (0.2 / 0.008);  // 位置のアニメーションと同期させるためのスケール増分
+
+        if (z >= 0.2) {
+          clearInterval(id);
+          onDone();
+        }
+
+        kazeAvatar.setAttribute("position", `0 -0.085 ${z}`);
+        kazeAvatar.setAttribute("scale", `${scale} ${scale} ${scale}`);
+      }, 10);
+    }
+
+    AFRAME.registerComponent('kazetarget', {
+      init: function() {
+        this.el.addEventListener('targetFound', event => {
+          console.log("target found");
+          kazeShowAvatar(() => {
+            setTimeout(() => {
+              kazeShowImage(() => {
+                setTimeout(() => {
+                  kazeShowInfo();
+                }, 100);
+              });
+            }, 100);
+          });
+        });
+        this.el.addEventListener('targetLost', event => {
+          console.log("target found");
+        });
+        //this.el.emit('targetFound');
+      }
+    });
+  </script>
 
   <style>
     body {
@@ -447,7 +587,7 @@
 </head>
 
 <body>
-  <div style="color: #f00;">Ver1.1.5</div>
+  <div style="color: #f00;">Ver1.1.6</div>
 
   <div class="example-container">
     <div id="example-scanning-overlay" class="">
@@ -484,6 +624,18 @@
         <img id="tori-language2-image" src="./assets/images/tori-lang-twn.jpg">
         <img id="tori-language3-image" src="./assets/images/tori-lang-usa.jpg">
         <a-asset-item id="tori-avatarModel" src="./assets/model/model_tori.glb"></a-asset-item>
+
+        <img id="tori-icon-country0" src="./assets/images/icon-jpn.png">
+        <img id="tori-icon-country1" src="./assets/images/icon-chn.png">
+        <img id="tori-icon-country2" src="./assets/images/icon-twn.png">
+        <img id="tori-icon-country3" src="./assets/images/icon-usa.png">
+        <img id="tori-icon-left" src="./assets/images/left.png">
+        <img id="tori-icon-right" src="./assets/images/right.png">
+        <img id="tori-start-image" src="./assets/images/kaze-lang-jpn.jpg">
+        <img id="tori-language1-image" src="./assets/images/kaze-lang-chn.jpg">
+        <img id="tori-language2-image" src="./assets/images/kaze-lang-twn.jpg">
+        <img id="tori-language3-image" src="./assets/images/kaze-lang-usa.jpg">
+        <a-asset-item id="tori-avatarModel" src="./assets/model/model_kaze.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
@@ -505,7 +657,6 @@
           <a-entity id="hana-image-item3" visible="false">
             <a-image class="clickable" src="#hana-language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
-
           <a-image visible="false" id="hana-image-left-button" class="clickable" src="#hana-icon-left" position="-0.65 0.3 0"
           height="0.15" width="0.15" material="" geometry=""></a-image>
           <a-image visible="false" id="hana-image-right-button" class="clickable" src="#hana-icon-right" position="0.65 0.3 0"
@@ -549,7 +700,6 @@
           <a-entity id="tori-image-item3" visible="false">
             <a-image class="clickable" src="#tori-language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
           </a-entity>
-
           <a-image visible="false" id="tori-image-left-button" class="clickable" src="#tori-icon-left" position="-0.65 0.3 0"
           height="0.15" width="0.15" material="" geometry=""></a-image>
           <a-image visible="false" id="tori-image-right-button" class="clickable" src="#tori-icon-right" position="0.65 0.3 0"
@@ -576,6 +726,49 @@
         animation="property: rotation; from: 0 -20 0; to: 0 20 0; dur: 2500; easing: easeInOutSine; loop: true; dir: alternate"></a-gltf-model>
 
         <a-text visible="false" id="tori-text" class="clickable" value="Tap the flag. Go to Wikipedia." color="black" align="center" width="1"
+        position="0 -0.375 0" geometry="primitive:plane; height: 0.1; width: 1;" material="opacity: 0.5" text=""></a-text>
+      </a-entity>
+
+      <a-entity kazetarget id="" mindar-image-target="targetIndex: 1">
+        <a-entity visible="false" id="kaze-image-panel" position="0 0 -0.01">
+          <a-entity id="kaze-image-item0">
+            <a-image id="kaze-start-image-item" class="clickable" src="#kaze-start-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          </a-entity>
+          <a-entity id="kaze-image-item1" visible="false">
+            <a-image class="clickable" src="#kaze-language1-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          </a-entity>
+          <a-entity id="kaze-image-item2" visible="false">
+            <a-image class="clickable" src="#kaze-language2-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          </a-entity>
+          <a-entity id="kaze-image-item3" visible="false">
+            <a-image class="clickable" src="#kaze-language3-image" alpha-test="0.5" position="0 0.3 0" height="0.552" width="1" material="" geometry=""></a-image>
+          </a-entity>
+          <a-image visible="false" id="kaze-image-left-button" class="clickable" src="#kaze-icon-left" position="-0.65 0.3 0"
+          height="0.15" width="0.15" material="" geometry=""></a-image>
+          <a-image visible="false" id="kaze-image-right-button" class="clickable" src="#kaze-icon-right" position="0.65 0.3 0"
+          height="0.15" width="0.15" material="" geometry=""></a-image>
+        </a-entity>
+
+        <a-image visible="false" id="kaze-country-button0" class="clickable" src="#kaze-icon-country0" position="-0.42 1 0"
+        height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        material="" geometry=""></a-image>
+
+        <a-image visible="false" id="kaze-country-button1" class="clickable" src="#kaze-icon-country1" position="-0.14 1 0"
+        height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        material="" geometry=""></a-image>
+
+        <a-image visible="false" id="kaze-country-button2" class="clickable" src="#kaze-icon-country2" position="0.14 1 0"
+        height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        material="" geometry=""></a-image>
+
+        <a-image visible="false" id="kaze-country-button3" class="clickable" src="#kaze-icon-country3" position="0.42 1 0"
+        height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        material="" geometry=""></a-image>
+
+        <a-gltf-model id="kaze-avatar" rotation="" position="0 -0.085 0" scale="0 0 0" src="#kaze-avatarModel" gltf-model=""
+        animation="property: rotation; from: 0 -20 0; to: 0 20 0; dur: 2500; easing: easeInOutSine; loop: true; dir: alternate"></a-gltf-model>
+
+        <a-text visible="false" id="kaze-text" class="clickable" value="Tap the flag. Go to Wikipedia." color="black" align="center" width="1"
         position="0 -0.375 0" geometry="primitive:plane; height: 0.1; width: 1;" material="opacity: 0.5" text=""></a-text>
       </a-entity>
 
